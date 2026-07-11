@@ -47,15 +47,16 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 ## Solution
 
 **Language:** C++  
-**Runtime:** 5 ms (beats 28.83%)  
-**Memory:** 18.3 MB (beats 27.62%)  
-**Submitted:** 2026-07-11T08:55:30.279Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 17.2 MB (beats 70.26%)  
+**Submitted:** 2026-07-11T08:58:36.814Z  
 
 ```cpp
 class Solution {
 public:
     bool divideArray(vector<int>& nums) {
         int n=nums.size();
+        /*
         unordered_map<int,int> hashMap;
 
         for(auto& it : nums){
@@ -64,6 +65,19 @@ public:
 
         for(auto& it : hashMap){
             if(it.second % 2 != 0){
+                return false;
+            }
+        }
+        return true;
+        */
+
+        // Since constraints are 500 we can use frequency array
+        int frequency[501]={0};
+        for(int i=0;i<n;i++){
+            frequency[nums[i]]++;
+        }
+        for(int i=1;i<=500;i++){
+            if(frequency[i]%2 != 0){
                 return false;
             }
         }
