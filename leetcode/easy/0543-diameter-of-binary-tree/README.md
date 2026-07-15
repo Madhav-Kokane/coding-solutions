@@ -1,0 +1,80 @@
+# Diameter of Binary Tree
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+
+## Problem
+
+Given the `root` of a binary tree, return  *the length of the  **diameter**  of the tree*.
+
+The  **diameter**  of a binary tree is the  **length**  of the longest path between any two nodes in a tree. This path may or may not pass through the `root`.
+
+The  **length**  of a path between two nodes is represented by the number of edges between them.
+
+ 
+
+ **Example 1:** 
+
+```
+Input: root = [1,2,3,4,5]
+Output: 3
+Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
+
+```
+
+ **Example 2:** 
+
+```
+Input: root = [1,2]
+Output: 1
+
+```
+
+ 
+
+ **Constraints:** 
+
+- The number of nodes in the tree is in the range [1, 104].
+- -100 <= Node.val <= 100
+
+## Solution
+
+**Language:** C++  
+**Runtime:** 3 ms (beats 23.60%)  
+**Memory:** 23.8 MB (beats 42.62%)  
+**Submitted:** 2026-07-15T09:06:41.287Z  
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int diameter=0;
+    int solve(TreeNode* root){
+        if(!root){
+            return 0;
+        }
+
+        int left=solve(root->left);
+        int right=solve(root->right);
+        diameter=max(diameter,(left+right));
+        return 1+max(left,right);
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        solve(root);
+        return diameter;
+    }
+};
+```
+
+---
+
+[View on LeetCode](https://leetcode.com/problems/diameter-of-binary-tree/)
