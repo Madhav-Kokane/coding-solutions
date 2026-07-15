@@ -48,15 +48,29 @@ Hence, `GCD(sumOdd, sumEven) = GCD(25, 30) = 5`.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
+**Runtime:** 3 ms (beats 16.66%)  
 **Memory:** 8.6 MB (beats 9.11%)  
-**Submitted:** 2026-07-15T06:02:34.348Z  
+**Submitted:** 2026-07-15T06:28:45.020Z  
 
 ```cpp
 class Solution {
 public:
+    int gcd(int x,int y){
+        while(y!=0){
+            int rem=x%y;
+            x=y;
+            y=rem;
+        }
+        return x;
+    }
     int gcdOfOddEvenSums(int n) {
-        return n;
+        // return n;
+        int sumOdd=(n*n);
+        int sumEven=n*(n+1);
+        if(sumOdd>sumEven){
+            return gcd(sumOdd,sumEven);
+        }
+        return gcd(sumEven,sumOdd);
     }
 };
 ```
