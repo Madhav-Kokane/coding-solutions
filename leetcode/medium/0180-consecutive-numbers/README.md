@@ -57,9 +57,9 @@ Explanation: 1 is the only number that appears consecutively for at least three 
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 96 ms  
-**Memory:** 0B  
-**Submitted:** 2026-07-22T13:48:29.110Z  
+**Runtime:** 644 ms (beats 21.60%)  
+**Memory:** 0B (beats 100.00%)  
+**Submitted:** 2026-07-22T13:48:36.030Z  
 
 ```sql
 SELECT
