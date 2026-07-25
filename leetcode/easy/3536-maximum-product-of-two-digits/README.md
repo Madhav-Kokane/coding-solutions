@@ -57,19 +57,16 @@ Return the  **maximum**  product of any two digits in `n`.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms (beats 15.04%)  
-**Memory:** 9.8 MB (beats 5.88%)  
-**Submitted:** 2026-07-25T08:50:27.241Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 9.5 MB (beats 6.58%)  
+**Submitted:** 2026-07-25T08:54:15.087Z  
 
 ```cpp
 class Solution {
 public:
     int maxProduct(int n) {
-        string str=to_string(n);
+        /*
         vector<int> nums;
-
-
-        
         while(n>9){
             int temp=n%10;
             nums.push_back(temp);
@@ -80,6 +77,12 @@ public:
         sort(nums.begin(),nums.end());
         int len=nums.size();
         return nums[len-1]*nums[len-2];
+*/
+        string str=to_string(n);
+        int len1=str.size();
+        sort(str.begin(),str.end());
+        return (str[len1-1]-'0')*(str[len1-2]-'0');
+
     }
 };
 ```
