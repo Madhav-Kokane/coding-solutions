@@ -42,15 +42,16 @@ Output: -6
 ## Solution
 
 **Language:** Java  
-**Runtime:** 15 ms (beats 80.39%)  
-**Memory:** 48.1 MB (beats 41.98%)  
-**Submitted:** 2026-07-26T09:36:39.040Z  
+**Runtime:** 18 ms (beats 5.34%)  
+**Memory:** 48.3 MB (beats 25.98%)  
+**Submitted:** 2026-07-26T09:38:02.209Z  
 
 ```java
 class Solution {
     public int maximumProduct(int[] nums) {
         Arrays.sort(nums);
         int len=nums.length;
+        /*
         if(nums[0] > 0){
             return nums[len-1]*nums[len-2]*nums[len-3];
         }
@@ -61,7 +62,11 @@ class Solution {
         }else{
             return nums[len-1]*nums[len-2]*nums[len-3];
         }
-        
+        */
+
+        int sum1=nums[len-1]*nums[len-2]*nums[len-3];
+        int sum2=nums[0]*nums[1]*nums[len-1];
+        return Math.max(sum1,sum2);
     }
 }
 ```
