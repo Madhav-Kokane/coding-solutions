@@ -60,30 +60,36 @@ After removing outer parentheses of each part, this is "" + "" = "".
 ## Solution
 
 **Language:** Java  
-**Runtime:** 9 ms (beats 14.89%)  
-**Memory:** 47 MB (beats 5.15%)  
-**Submitted:** 2026-08-17T05:24:33.814Z  
+**Runtime:** 2 ms (beats 99.72%)  
+**Memory:** 43.7 MB (beats 26.17%)  
+**Submitted:** 2026-08-17T05:28:57.467Z  
 
 ```java
 class Solution {
     public String removeOuterParentheses(String s) {
         int n=s.length();
         int depth=0;
-        String ans="";
+        // String ans="";
+        StringBuilder finalAns=new StringBuilder();
         for(char ch : s.toCharArray()){
             if(ch == '('){
                 if(depth>0){
-                    ans+=ch;
+                    // ans+=ch;
+                    finalAns.append(ch);
                 }
                 depth++;
             }else{
                 depth--;
                 if(depth>0){
-                    ans+=ch;
+                    // ans+=ch;
+                    finalAns.append(ch);
                 }
             }
         }
-        return ans;
+        // return ans;
+        // return finalAns; 
+        return finalAns.toString();
+        
     }
 }
 ```
