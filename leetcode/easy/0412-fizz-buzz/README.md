@@ -45,34 +45,29 @@ Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13"
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 4 ms (beats 2.84%)  
-**Memory:** 11.7 MB (beats 48.36%)  
-**Submitted:** 2026-08-22T06:47:48.346Z  
+**Language:** Java  
+**Runtime:** 1 ms (beats 99.89%)  
+**Memory:** 46.6 MB (beats 83.99%)  
+**Submitted:** 2026-08-22T07:03:55.886Z  
 
-```cpp
+```java
 class Solution {
-public:
-    vector<string> fizzBuzz(int n) {
-        vector<string> answer;
+    public List<String> fizzBuzz(int n) {
+        List<String> answer=new ArrayList<>();
         for(int i=1;i<=n;i++){
             if(i%3==0 && i%5==0){
-                // answer[i]="FizzBuzz";
-                answer.push_back("FizzBuzz");
+                answer.add("FizzBuzz");
             }else if(i%3==0){
-                // answer[i]="Fizz";
-                answer.push_back("Fizz");
+                answer.add("Fizz");
             }else if(i%5==0){
-                // answer[i]="Buzz";
-                answer.push_back("Buzz");
+                answer.add("Buzz");
             }else{
-                // answer[i]=to_string(i);
-                answer.push_back(to_string(i));
+                answer.add(Integer.toString(i));
             }
         }
         return answer;
     }
-};
+}
 ```
 
 ---
