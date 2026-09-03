@@ -39,26 +39,25 @@ Output: [0]
 
 ## Solution
 
-**Language:** Java  
-**Runtime:** 2 ms (beats 91.97%)  
-**Memory:** 47.8 MB (beats 57.67%)  
-**Submitted:** 2026-08-22T07:21:21.502Z  
+**Language:** C++  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 23.7 MB (beats 82.78%)  
+**Submitted:** 2026-09-03T09:33:57.457Z  
 
-```java
+```cpp
 class Solution {
-    public void moveZeroes(int[] nums) {
-        int n=nums.length;
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n=nums.size();
         int left=0;
         for(int i=0;i<n;i++){
             if(nums[i] != 0){
-                int temp=nums[i];
-                nums[i]=nums[left];
-                nums[left]=temp;
+                swap(nums[i],nums[left]);
                 left++;
             }
         }
     }
-}
+};
 ```
 
 ---
