@@ -61,14 +61,15 @@ Given an array `nums` containing `n` distinct numbers in the range `[0, n]`, ret
 ## Solution
 
 **Language:** C++  
-**Runtime:** 19 ms (beats 9.16%)  
-**Memory:** 27.9 MB (beats 5.16%)  
-**Submitted:** 2026-09-03T11:17:44.680Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 21.8 MB (beats 38.66%)  
+**Submitted:** 2026-09-03T11:24:34.639Z  
 
 ```cpp
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
+        /*
         unordered_set<int> st;
         for(auto it : nums){
             st.insert({it});
@@ -77,6 +78,20 @@ public:
         int n=nums.size();
         for(int i=0;i<=n;i++){
             if(st.find(i) == st.end()){
+                return i;
+            }
+        }
+        return -1;
+        */
+
+        int n=nums.size();
+        vector<bool> present(n+1,false);
+        for(auto it : nums){
+            present[it]=true;
+        }
+
+        for(int i=0;i<present.size();i++){
+            if(present[i] == false){
                 return i;
             }
         }
