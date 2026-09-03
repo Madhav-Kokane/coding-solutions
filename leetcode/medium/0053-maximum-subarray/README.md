@@ -48,28 +48,29 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 ## Solution
 
-**Language:** Java  
-**Runtime:** 1 ms (beats 99.95%)  
-**Memory:** 77.1 MB (beats 66.65%)  
-**Submitted:** 2026-08-22T07:10:09.369Z  
+**Language:** C++  
+**Runtime:** 0 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-09-03T10:58:16.551Z  
 
-```java
+```cpp
 class Solution {
-    public int maxSubArray(int[] nums) {
-        int maxSum=Integer.MIN_VALUE;
-        int n=nums.length;
-        int sumn=0;
-        for(int i=0;i<n;i++){
-            sumn += nums[i];
-            maxSum=Math.max(sumn,maxSum);
-            if(sumn<0){
-                sumn=0;
-            }
+public:
+    int maxSubArray(vector<int>& nums) {
+        int largestSum=INT_MIN;
+        int sum=0;
+        for(auto it : nums){
+            sum+=it;
+            largestSum=max(largestSum,sum);
 
+            if(sum<0){
+                sum=0;
+            }
         }
-        return maxSum;
+
+        return largestSum;
     }
-}
+};
 ```
 
 ---
