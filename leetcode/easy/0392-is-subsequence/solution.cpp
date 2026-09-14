@@ -6,7 +6,7 @@ public:
 
         int back=0;
         for(int i=0;i<tSize;i++){
-            if(s[back] == t[i]){
+            if(back<sSize && s[back] == t[i]){
                 back++;
             }
         }
