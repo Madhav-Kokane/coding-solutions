@@ -41,9 +41,9 @@ Output: false
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 8.4 MB (beats 91.35%)  
-**Submitted:** 2026-09-14T09:35:53.897Z  
+**Runtime:** 0 ms  
+**Memory:** 7.9 MB  
+**Submitted:** 2026-09-14T09:36:25.104Z  
 
 ```cpp
 class Solution {
@@ -54,7 +54,7 @@ public:
 
         int back=0;
         for(int i=0;i<tSize;i++){
-            if(s[back] == t[i]){
+            if(back<sSize && s[back] == t[i]){
                 back++;
             }
         }
