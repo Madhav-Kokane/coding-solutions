@@ -44,46 +44,20 @@ All elements are distinct.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 79 ms (beats 28.62%)  
-**Memory:** 111.3 MB (beats 62.92%)  
-**Submitted:** 2026-09-03T09:18:47.111Z  
+**Runtime:** 72 ms (beats 53.12%)  
+**Memory:** 111.3 MB (beats 46.26%)  
+**Submitted:** 2026-09-14T08:48:50.146Z  
 
 ```cpp
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        int n=nums.size();
-        /*
-        sort(nums.begin(),nums.end());
-        for(int i=0;i<n-1;i++){
-            if(nums[i] == nums[i+1]){
-                return true;
-            }
-        }
-        return false;
-        */
-        
-        /*
-        unordered_map<int,int> hashMap;
-        for(int i=0;i<n;i++){
-            hashMap[nums[i]]++;
-        }
-
-        for(auto & it : hashMap){
-            if(it.second > 1){
-                return true;
-            }
-        }
-        return false;
-        */
-
-        unordered_set<int> st;
+        unordered_set<int> hashSet;
         for(auto it : nums){
-            if(st.find(it) != st.end()){
+            if(hashSet.find(it) != hashSet.end()){
                 return true;
-            }else{
-                st.insert({it});
             }
+            hashSet.insert({it});
         }
         return false;
     }
