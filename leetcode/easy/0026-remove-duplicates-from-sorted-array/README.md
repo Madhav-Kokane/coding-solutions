@@ -62,15 +62,15 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 22.6 MB (beats 80.42%)  
-**Submitted:** 2026-09-18T08:45:49.675Z  
+**Runtime:** 0 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-09-18T08:46:42.713Z  
 
 ```cpp
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int k=1;
+        int k=0;
         for(int i=1;i<nums.size();i++){
             if(nums[i] != nums[i-1]){
                 nums[k]=nums[i];
