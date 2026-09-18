@@ -41,15 +41,15 @@ Output: [0]
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 23.7 MB (beats 82.78%)  
-**Submitted:** 2026-09-03T09:33:57.457Z  
+**Memory:** 23.9 MB (beats 55.43%)  
+**Submitted:** 2026-09-18T08:42:11.645Z  
 
 ```cpp
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int n=nums.size();
         int left=0;
+        int n=nums.size();
         for(int i=0;i<n;i++){
             if(nums[i] != 0){
                 swap(nums[i],nums[left]);
