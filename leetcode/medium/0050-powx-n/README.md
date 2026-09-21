@@ -46,9 +46,9 @@ Explanation: 2-2 = 1/22 = 1/4 = 0.25
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-09-21T13:13:13.322Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 8.5 MB (beats 93.14%)  
+**Submitted:** 2026-09-21T13:13:23.600Z  
 
 ```cpp
 class Solution {
