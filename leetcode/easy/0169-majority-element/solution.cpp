@@ -8,9 +8,7 @@ public:
         for(int i=1;i<n;i++){
             if(count==0){
                 ele=nums[i];
-            }
-            
-            if(nums[i] == ele){
+            }else if(nums[i] == ele){
                 count++;
             }else{
                 count--;
