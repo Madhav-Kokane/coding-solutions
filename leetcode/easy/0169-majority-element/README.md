@@ -42,9 +42,9 @@ Output: 2
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 42.1 MB (beats 5.36%)  
-**Submitted:** 2026-09-23T08:34:30.139Z  
+**Runtime:** 0 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-09-23T08:33:15.938Z  
 
 ```cpp
 class Solution {
@@ -57,9 +57,7 @@ public:
         for(int i=1;i<n;i++){
             if(count==0){
                 ele=nums[i];
-            }
-            
-            if(nums[i] == ele){
+            }else if(nums[i] == ele){
                 count++;
             }else{
                 count--;
