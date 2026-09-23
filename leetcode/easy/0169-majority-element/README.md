@@ -44,7 +44,7 @@ Output: 2
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.2 MB  
-**Submitted:** 2026-09-23T08:32:27.953Z  
+**Submitted:** 2026-09-23T08:32:54.827Z  
 
 ```cpp
 class Solution {
@@ -57,7 +57,9 @@ public:
         for(int i=1;i<n;i++){
             if(count==0){
                 ele=nums[i];
-            }else if(nums[i] == ele){
+            }
+            
+            if(nums[i] == ele){
                 count++;
             }else{
                 count--;
