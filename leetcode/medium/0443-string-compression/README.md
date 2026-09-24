@@ -61,9 +61,9 @@ After modifying the input array in-place, the first 4 characters of chars should
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-09-24T13:54:31.503Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 13.8 MB (beats 50.93%)  
+**Submitted:** 2026-09-24T13:54:38.983Z  
 
 ```cpp
 class Solution {
