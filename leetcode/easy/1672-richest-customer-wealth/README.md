@@ -53,27 +53,30 @@ Output: 17
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 44.7 MB (beats 18.90%)  
-**Submitted:** 2026-07-25T10:49:13.490Z  
+**Memory:** 11.3 MB (beats 55.12%)  
+**Submitted:** 2026-09-25T06:54:45.551Z  
 
-```java
+```cpp
 class Solution {
-    public int maximumWealth(int[][] accounts) {
-       int maxVal=Integer.MIN_VALUE;
-       int rows=accounts.length;
-       int cols=accounts[0].length;
-       for(int i=0;i<rows;i++){
-            int sum=0;
-            for(int j=0;j<cols;j++){
-                sum += accounts[i][j];
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int rowSize = accounts.size();
+        int colSize = accounts[0].size();
+
+        int maxWealth = INT_MIN;
+        for (int i = 0; i < rowSize; i++) {
+            int sumn = 0;
+            for (int j = 0; j < colSize; j++) {
+                sumn += accounts[i][j];
             }
-            maxVal=Math.max(maxVal,sum);
-       }
-       return maxVal;
+            maxWealth = max(maxWealth, sumn);
+        }
+
+        return maxWealth;
     }
-}
+};
 ```
 
 ---
