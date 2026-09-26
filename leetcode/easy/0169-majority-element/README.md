@@ -42,28 +42,28 @@ Output: 2
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-09-23T08:33:15.938Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 42.3 MB (beats 7.89%)  
+**Submitted:** 2026-09-26T14:22:06.580Z  
 
 ```cpp
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
+        unordered_map<int,int> hashMap;
         int n=nums.size();
-        int ele=nums[0];
-        int count=1;
 
-        for(int i=1;i<n;i++){
-            if(count==0){
-                ele=nums[i];
-            }else if(nums[i] == ele){
-                count++;
-            }else{
-                count--;
+        for(auto it : nums){
+            hashMap[it]++;
+        }
+
+        for(auto it : nums){
+            if(hashMap[it] > (n/2)){
+                return it;
             }
         }
-        return ele;
+
+        return -1;
     }
 };
 ```
