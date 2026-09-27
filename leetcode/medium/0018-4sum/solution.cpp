@@ -32,7 +32,7 @@ public:
                         while(start<end && nums[end]==nums[end+1]){
                             end--;
                         }
-                    }else if(sum<0){
+                    }else if(sum<target){
                         start++;
                     }else{
                         end--;
