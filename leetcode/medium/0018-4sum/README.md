@@ -41,9 +41,9 @@ Output: [[2,2,2,2]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-09-27T04:50:19.098Z  
+**Runtime:** 28 ms (beats 14.43%)  
+**Memory:** 17.4 MB (beats 87.46%)  
+**Submitted:** 2026-09-27T04:54:05.711Z  
 
 ```cpp
 class Solution {
@@ -67,7 +67,7 @@ public:
                 int end=n-1;
 
                 while(start<end){
-                    int sum=nums[i]+nums[j]+nums[start]+nums[end];
+                    long long sum=(long long)nums[i]+nums[j]+nums[start]+nums[end];
                     if(sum == target){
                         result.push_back({nums[i],nums[j],nums[start],nums[end]});
                         start++;
