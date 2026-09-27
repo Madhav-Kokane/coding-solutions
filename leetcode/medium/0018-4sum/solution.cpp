@@ -19,7 +19,7 @@ public:
                 int end=n-1;
 
                 while(start<end){
-                    int sum=nums[i]+nums[j]+nums[start]+nums[end];
+                    long long sum=(long long)nums[i]+nums[j]+nums[start]+nums[end];
                     if(sum == target){
                         result.push_back({nums[i],nums[j],nums[start],nums[end]});
                         start++;
