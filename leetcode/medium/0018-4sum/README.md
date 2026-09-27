@@ -42,8 +42,8 @@ Output: [[2,2,2,2]]
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-09-27T04:49:23.907Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-09-27T04:50:10.650Z  
 
 ```cpp
 class Solution {
@@ -80,7 +80,7 @@ public:
                         while(start<end && nums[end]==nums[end+1]){
                             end--;
                         }
-                    }else if(sum<0){
+                    }else if(sum<target){
                         start++;
                     }else{
                         end--;
