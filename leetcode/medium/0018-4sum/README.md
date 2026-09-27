@@ -43,7 +43,7 @@ Output: [[2,2,2,2]]
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.5 MB  
-**Submitted:** 2026-09-27T04:50:10.650Z  
+**Submitted:** 2026-09-27T04:50:19.098Z  
 
 ```cpp
 class Solution {
