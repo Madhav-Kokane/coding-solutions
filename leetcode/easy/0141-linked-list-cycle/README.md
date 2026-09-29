@@ -54,9 +54,9 @@ Explanation: There is no cycle in the linked list.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 5 ms  
-**Memory:** 10.5 MB  
-**Submitted:** 2026-09-29T15:49:48.671Z  
+**Runtime:** 6 ms  
+**Memory:** 10.4 MB  
+**Submitted:** 2026-09-29T15:50:19.157Z  
 
 ```cpp
 /**
@@ -78,11 +78,11 @@ public:
         ListNode* back=head;
 
         while(front && front->next){
-            front=front->next->next;
-            back=back->next;
             if(front==back){
                 return true;
             }
+            front=front->next->next;
+            back=back->next;
         }
         return false;
     }
