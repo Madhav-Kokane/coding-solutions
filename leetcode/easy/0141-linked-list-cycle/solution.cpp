@@ -17,11 +17,11 @@ public:
         ListNode* back=head;
 
         while(front && front->next){
-            front=front->next->next;
-            back=back->next;
             if(front==back){
                 return true;
             }
+            front=front->next->next;
+            back=back->next;
         }
         return false;
     }
