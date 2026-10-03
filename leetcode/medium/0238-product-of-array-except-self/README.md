@@ -43,43 +43,40 @@ Output: [0,0,9,0,0]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 4 ms (beats 21.05%)  
-**Memory:** 43.8 MB (beats 5.09%)  
-**Submitted:** 2026-09-03T09:30:37.128Z  
+**Runtime:** 3 ms (beats 37.26%)  
+**Memory:** 43.9 MB (beats 5.82%)  
+**Submitted:** 2026-10-03T05:20:21.476Z  
 
 ```cpp
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        int prod=1;
+        vector<int>  ltor;
         int n=nums.size();
-        vector<int> preProd;
-        for(auto it:nums){
-            prod=prod*it;
-            preProd.push_back(prod);
+        int prod=1;
+        for(int i=0;i<n;i++){
+            prod=nums[i]*prod;
+            ltor.push_back(prod);
         }
 
-
-        vector<int> sufProd(n);
         prod=1;
+        vector<int> rtol(n);
         for(int i=n-1;i>=0;i--){
-            prod*=nums[i];
-            sufProd[i]=prod;
+            prod=prod*nums[i];
+            rtol[i]=prod;
         }
 
-        vector<int> result(n);
+        vector<int> result(n,0);
         for(int i=0;i<n;i++){
             if(i==0){
-                result[i]=sufProd[i+1];
+                result[i]=rtol[i+1];
             }else if(i==n-1){
-                result[i]=preProd[n-2];
+                result[i]=ltor[i-1];
             }else{
-                result[i]=preProd[i-1]*sufProd[i+1];
+                result[i]=ltor[i-1]*rtol[i+1];
             }
-            
         }
         return result;
-
     }
 };
 ```
