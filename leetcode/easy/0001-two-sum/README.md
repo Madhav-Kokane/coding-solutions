@@ -53,9 +53,9 @@ Output: [0,1]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms (beats 68.00%)  
-**Memory:** 14.9 MB (beats 44.81%)  
-**Submitted:** 2026-10-03T04:53:17.789Z  
+**Runtime:** 0 ms  
+**Memory:** 8.6 MB  
+**Submitted:** 2026-10-03T04:53:50.326Z  
 
 ```cpp
 class Solution {
@@ -66,7 +66,7 @@ public:
         vector<int> result;
         for(int i=0;i<n;i++){
             int remain=target-nums[i];
-            if(hashMap.count(remain)){
+            if(hashMap.find(remain) != hashMap.end()){
                 result.push_back(hashMap[remain]);
                 result.push_back(i);
                 return result;
