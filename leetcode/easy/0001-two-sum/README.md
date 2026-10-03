@@ -4,7 +4,7 @@
 
 ## Problem
 
-Given an array of integers `nums` and an integer `target`, return  *indices of the two numbers such that they add up to `target`*.
+You are given an array of integers `nums` and an integer `target`, return  *indices of the two numbers such that they add up to `target`*.
 
 You may assume that each input would have  ***exactly *one solution**, and you may not use the* same* element twice.
 
@@ -53,25 +53,25 @@ Output: [0,1]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms (beats 66.81%)  
-**Memory:** 15.9 MB (beats 7.29%)  
-**Submitted:** 2026-07-10T08:35:27.995Z  
+**Runtime:** 3 ms (beats 68.00%)  
+**Memory:** 14.9 MB (beats 44.81%)  
+**Submitted:** 2026-10-03T04:53:17.789Z  
 
 ```cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int,int> hashMap;
-        vector<int> result;
         int n=nums.size();
+        vector<int> result;
         for(int i=0;i<n;i++){
             int remain=target-nums[i];
             if(hashMap.count(remain)){
-                int first=hashMap[remain];
-                result.push_back(first);
+                result.push_back(hashMap[remain]);
                 result.push_back(i);
+                return result;
             }else{
-                hashMap.insert({nums[i],i});
+                hashMap[nums[i]]=i;
             }
         }
         return result;
