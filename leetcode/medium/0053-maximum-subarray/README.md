@@ -50,25 +50,24 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 71.6 MB (beats 81.20%)  
-**Submitted:** 2026-09-03T10:58:37.911Z  
+**Memory:** 71.8 MB (beats 51.75%)  
+**Submitted:** 2026-10-03T05:26:43.031Z  
 
 ```cpp
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int largestSum=INT_MIN;
+        int maxSub=INT_MIN;
+        int n=nums.size();
         int sum=0;
-        for(auto it : nums){
-            sum+=it;
-            largestSum=max(largestSum,sum);
-
+        for(int i=0;i<n;i++){
+            sum+=nums[i];
+            maxSub=max(maxSub,sum);
             if(sum<0){
                 sum=0;
             }
         }
-
-        return largestSum;
+        return maxSub;
     }
 };
 ```
