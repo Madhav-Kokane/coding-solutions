@@ -41,8 +41,8 @@ Output: [0]
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 23.8 MB (beats 55.43%)  
-**Submitted:** 2026-09-18T08:43:30.151Z  
+**Memory:** 23.8 MB (beats 55.23%)  
+**Submitted:** 2026-10-03T05:22:41.672Z  
 
 ```cpp
 class Solution {
@@ -51,7 +51,7 @@ public:
         int left=0;
         int n=nums.size();
         for(int i=0;i<n;i++){
-            if(nums[i] != 0){
+            if(nums[i]!=0){
                 swap(nums[i],nums[left]);
                 left++;
             }
