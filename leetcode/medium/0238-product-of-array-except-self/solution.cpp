@@ -1,34 +1,31 @@
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        int prod=1;
+        vector<int>  ltor;
         int n=nums.size();
-        vector<int> preProd;
-        for(auto it:nums){
-            prod=prod*it;
-            preProd.push_back(prod);
+        int prod=1;
+        for(int i=0;i<n;i++){
+            prod=nums[i]*prod;
+            ltor.push_back(prod);
         }
 
-
-        vector<int> sufProd(n);
         prod=1;
+        vector<int> rtol(n);
         for(int i=n-1;i>=0;i--){
-            prod*=nums[i];
-            sufProd[i]=prod;
+            prod=prod*nums[i];
+            rtol[i]=prod;
         }
 
-        vector<int> result(n);
+        vector<int> result(n,0);
         for(int i=0;i<n;i++){
             if(i==0){
-                result[i]=sufProd[i+1];
+                result[i]=rtol[i+1];
             }else if(i==n-1){
-                result[i]=preProd[n-2];
+                result[i]=ltor[i-1];
             }else{
-                result[i]=preProd[i-1]*sufProd[i+1];
+                result[i]=ltor[i-1]*rtol[i+1];
             }
-            
         }
         return result;
-
     }
 };
