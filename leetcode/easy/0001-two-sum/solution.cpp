@@ -6,7 +6,7 @@ public:
         vector<int> result;
         for(int i=0;i<n;i++){
             int remain=target-nums[i];
-            if(hashMap.count(remain)){
+            if(hashMap.find(remain) != hashMap.end()){
                 result.push_back(hashMap[remain]);
                 result.push_back(i);
                 return result;
