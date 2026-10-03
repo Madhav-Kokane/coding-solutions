@@ -44,9 +44,9 @@ All elements are distinct.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 72 ms (beats 53.12%)  
-**Memory:** 111.3 MB (beats 46.26%)  
-**Submitted:** 2026-09-14T08:48:50.146Z  
+**Runtime:** 93 ms (beats 14.16%)  
+**Memory:** 111.1 MB (beats 74.68%)  
+**Submitted:** 2026-10-03T05:05:47.968Z  
 
 ```cpp
 class Solution {
