@@ -1,20 +1,28 @@
 class Solution {
 public:
     vector<int> arrayRankTransform(vector<int>& arr) {
-        vector<int> nums=arr;
-        sort(nums.begin(),nums.end());
-        unordered_map<int,int> hashSet;
-        int rank=1;
-        for(auto& it : nums){
-            if(!hashSet.count(it)){
-                hashSet[it]=rank;
-                rank++;
-            }
+        unordered_set<int> hashSet;
+        for(auto it : arr){
+            hashSet.insert({it});
         }
-     
+
+        priority_queue<int,vector<int>,greater<int>> pq;
+        for(auto it : hashSet){
+            pq.push(it);
+        }
+
+        unordered_map<int,int> hashMap;
+        int i=1;
+
+        while(!pq.empty()){
+            hashMap[pq.top()]=i;
+            i++;
+            pq.pop();
+        }
+
         int n=arr.size();
         for(int i=0;i<n;i++){
-            arr[i]=hashSet[arr[i]];
+            arr[i]=hashMap[arr[i]];
         }
         return arr;
     }
