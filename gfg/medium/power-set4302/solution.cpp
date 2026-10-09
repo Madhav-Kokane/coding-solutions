@@ -1,22 +1,23 @@
 class Solution {
   public:
-    void soln(int i,int n,string& s,vector<string>& result,string str){
+    void buildStr(int i,int n,string str,string& s,vector<string>& result){
         if(i==n){
             result.push_back(str);
             return;
         }
         
         str.push_back(s[i]);
-        soln(i+1,n,s,result,str);
+        buildStr(i+1,n,str,s,result);
         str.pop_back();
-        soln(i+1,n,s,result,str);
+        buildStr(i+1,n,str,s,result);
     }
     vector<string> powerSet(string &s) {
         // Code here
-        string str="";
-        int n=s.length();
+        int n=s.size();
         vector<string> result;
-        soln(0,n,s,result,str);
+        string str="";
+        
+        buildStr(0,n,str,s,result);
         sort(result.begin(),result.end());
         return result;
     }
