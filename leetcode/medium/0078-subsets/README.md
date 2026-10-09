@@ -38,29 +38,29 @@ Output: [[],[0]]
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 10.1 MB (beats 38.23%)  
-**Submitted:** 2026-09-22T08:51:17.308Z  
+**Memory:** 9.8 MB (beats 95.86%)  
+**Submitted:** 2026-10-09T08:17:29.472Z  
 
 ```cpp
 class Solution {
 public:
-    void soln(int i,int n,vector<int>& nums,vector<vector<int>>& result,vector<int>& sub){
+    void buildSoln(int i,int n,vector<int>& temp,vector<int>& nums,vector<vector<int>>& result){
         if(i==n){
-            result.push_back(sub);
+            result.push_back(temp);
             return;
         }
 
-        sub.push_back(nums[i]);
-        soln(i+1,n,nums,result,sub);
-        sub.pop_back();
-        soln(i+1,n,nums,result,sub);
+        temp.push_back(nums[i]);
+        buildSoln(i+1,n,temp,nums,result);
+        temp.pop_back();
+        buildSoln(i+1,n,temp,nums,result);
+
     }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> result;
-        vector<int> sub;
         int n=nums.size();
-
-        soln(0,n,nums,result,sub);
+        vector<int> temp;
+        buildSoln(0,n,temp,nums,result);
         return result;
     }
 };
