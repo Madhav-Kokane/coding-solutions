@@ -47,34 +47,34 @@ Explanation: 2-2 = 1/22 = 1/4 = 0.25
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 8.5 MB (beats 93.14%)  
-**Submitted:** 2026-09-21T13:13:23.600Z  
+**Memory:** 8.7 MB (beats 44.88%)  
+**Submitted:** 2026-10-09T07:54:17.227Z  
 
 ```cpp
 class Solution {
 public:
-    double recSoln(double x,long long n){
-        if(n == 0){
+    double recSoln(double x,int N){
+        if(N == 0){
             return 1;
         }
-        
-        double half=recSoln(x,n/2);
 
-        if(n%2 == 0){
-            return half * half;
-        }
+        double half=recSoln(x,N/2);
+
+        if(N%2 == 0){
+            return half*half;
+        } 
 
         return x*half*half;
-
-
     }
     double myPow(double x, int n) {
-        double ans=1;
+        if(x==1){
+            return x;
+        }
 
-        long long N=n;
 
-        if(n<0){
-            return 1/recSoln(x,-N);
+        int N=n;
+        if(N<0){
+            return 1/recSoln(x,N);
         }
         return recSoln(x,N);
     }
