@@ -36,9 +36,9 @@ Output: 2
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 22.4 MB (beats 6.62%)  
-**Submitted:** 2026-07-15T08:51:19.889Z  
+**Runtime:** 3 ms (beats 7.38%)  
+**Memory:** 22.3 MB (beats 26.46%)  
+**Submitted:** 2026-10-11T14:23:40.929Z  
 
 ```cpp
 /**
@@ -55,7 +55,6 @@ Output: 2
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        /*
         if(root==nullptr){
             return 0;
         }
@@ -63,30 +62,6 @@ public:
         int left=maxDepth(root->left);
         int right=maxDepth(root->right);
         return 1+max(left,right);
-        */
-
-        int maxDepth=0;
-        if(!root){
-            return 0;
-        }
-        queue<TreeNode*> q;
-        q.push(root);
-        while(!q.empty()){
-            int qSize=q.size();
-            for(int i=0;i<qSize;i++){
-                TreeNode* curr=q.front();
-                q.pop();
-                if(curr->left){
-                    q.push(curr->left);
-                }
-
-                if(curr->right){
-                    q.push(curr->right);
-                }
-            }
-            maxDepth++;
-        }
-        return maxDepth;
     }
 };
 ```
