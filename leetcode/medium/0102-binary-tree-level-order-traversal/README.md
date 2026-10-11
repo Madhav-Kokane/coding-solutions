@@ -43,8 +43,8 @@ Output: []
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 17.2 MB (beats 16.00%)  
-**Submitted:** 2026-07-15T11:55:15.496Z  
+**Memory:** 17.1 MB (beats 72.51%)  
+**Submitted:** 2026-10-11T14:20:16.321Z  
 
 ```cpp
 /**
@@ -61,30 +61,32 @@ Output: []
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
+
         vector<vector<int>> result;
-        queue<TreeNode*> q;
         if(!root){
             return result;
         }
-
+        queue<TreeNode*> q;
         q.push(root);
-        while(!q.empty()){
-            int qSize=q.size();
-            vector<int> temp;
-            for(int i=0;i<qSize;i++){
-                TreeNode* tempNode=q.front();
-                q.pop();
-                temp.push_back(tempNode->val);
+        // vector<int> temp;
 
-                if(tempNode->left){
-                    q.push(tempNode->left);
+        while(!q.empty()){
+            vector<int> level;
+            int qSize=q.size();
+            for(int i=0;i<qSize;i++){
+                TreeNode* node=q.front();
+                q.pop();
+                level.push_back(node->val);
+
+                if(node->left){
+                    q.push(node->left);
                 }
 
-                if(tempNode->right){
-                    q.push(tempNode->right);
+                if(node->right){
+                    q.push(node->right);
                 }
             }
-            result.push_back(temp);
+            result.push_back(level);
         }
         return result;
     }
