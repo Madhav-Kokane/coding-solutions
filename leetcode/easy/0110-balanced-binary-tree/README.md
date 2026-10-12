@@ -43,8 +43,8 @@ Output: true
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 23 MB (beats 84.00%)  
-**Submitted:** 2026-07-15T09:12:37.768Z  
+**Memory:** 23 MB (beats 54.73%)  
+**Submitted:** 2026-10-12T04:11:14.880Z  
 
 ```cpp
 /**
@@ -60,25 +60,23 @@ Output: true
  */
 class Solution {
 public:
-    bool balanced=true;
-    int depth(TreeNode* root){
+    int solve(TreeNode* root,bool& balanced){
         if(!root){
             return 0;
         }
 
-        int left=depth(root->left);
-        int right=depth(root->right);
-        if(abs(left-right) > 1){
-            balanced=false;
+        int left=solve(root->left,balanced);
+        int right=solve(root->right,balanced);
+        if(abs(right-left)>1){
+            balanced = false;
         }
-
         return 1+max(left,right);
+
     }
     bool isBalanced(TreeNode* root) {
-        
-        depth(root);
+        bool balanced=true;
+        solve(root,balanced);
         return balanced;
-
     }
 };
 ```
