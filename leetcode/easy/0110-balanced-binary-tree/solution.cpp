@@ -11,24 +11,22 @@
  */
 class Solution {
 public:
-    bool balanced=true;
-    int depth(TreeNode* root){
+    int solve(TreeNode* root,bool& balanced){
         if(!root){
             return 0;
         }
 
-        int left=depth(root->left);
-        int right=depth(root->right);
-        if(abs(left-right) > 1){
-            balanced=false;
+        int left=solve(root->left,balanced);
+        int right=solve(root->right,balanced);
+        if(abs(right-left)>1){
+            balanced = false;
         }
-
         return 1+max(left,right);
+
     }
     bool isBalanced(TreeNode* root) {
-        
-        depth(root);
+        bool balanced=true;
+        solve(root,balanced);
         return balanced;
-
     }
 };
