@@ -51,8 +51,8 @@ Given the `root` of a binary tree, return  *the inorder traversal of its nodes' 
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 11 MB (beats 11.94%)  
-**Submitted:** 2026-07-15T11:50:26.503Z  
+**Memory:** 11 MB (beats 14.86%)  
+**Submitted:** 2026-10-12T03:52:07.966Z  
 
 ```cpp
 /**
@@ -68,18 +68,18 @@ Given the `root` of a binary tree, return  *the inorder traversal of its nodes' 
  */
 class Solution {
 public:
-    vector<int> result;
-    void solve(TreeNode* root){
+    void solve(TreeNode* root,vector<int>& result){
         if(!root){
             return;
         }
 
-        solve(root->left);
+        solve(root->left,result);
         result.push_back(root->val);
-        solve(root->right);
+        solve(root->right,result);
     }
     vector<int> inorderTraversal(TreeNode* root) {
-        solve(root);
+        vector<int> result;
+        solve(root,result);
         return result;
     }
 };
