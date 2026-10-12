@@ -45,8 +45,8 @@ Output: false
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 12.6 MB (beats 97.07%)  
-**Submitted:** 2026-07-15T09:16:52.351Z  
+**Memory:** 12.9 MB (beats 12.61%)  
+**Submitted:** 2026-10-12T04:04:54.798Z  
 
 ```cpp
 /**
@@ -63,22 +63,21 @@ Output: false
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if(p==nullptr && q==nullptr){
+        if(!p && !q){
             return true;
         }
 
-        if(p==nullptr && q!=nullptr){
+        if((p && !q) || (!p && q)){
             return false;
         }
 
-        if(p!=nullptr && q==nullptr){
+        if(p->val != q->val){
             return false;
         }
 
         bool left=isSameTree(p->left,q->left);
         bool right=isSameTree(p->right,q->right);
-
-        return (p->val == q->val) && left && right;
+        return left && right;
     }
 };
 ```
