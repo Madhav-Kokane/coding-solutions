@@ -39,9 +39,9 @@ Output: 1
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms (beats 23.60%)  
-**Memory:** 23.8 MB (beats 42.62%)  
-**Submitted:** 2026-07-15T09:06:41.287Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 23.5 MB (beats 99.78%)  
+**Submitted:** 2026-10-12T04:21:27.241Z  
 
 ```cpp
 /**
@@ -57,20 +57,22 @@ Output: 1
  */
 class Solution {
 public:
-    int diameter=0;
-    int solve(TreeNode* root){
+    int solve(TreeNode* root,int& diameter){
         if(!root){
             return 0;
         }
 
-        int left=solve(root->left);
-        int right=solve(root->right);
+        int left=solve(root->left,diameter);
+        int right=solve(root->right,diameter);
         diameter=max(diameter,(left+right));
+
         return 1+max(left,right);
     }
     int diameterOfBinaryTree(TreeNode* root) {
-        solve(root);
+        int diameter=0;
+        solve(root,diameter);
         return diameter;
+
     }
 };
 ```
