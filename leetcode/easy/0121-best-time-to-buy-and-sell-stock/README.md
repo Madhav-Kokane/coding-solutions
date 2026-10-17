@@ -40,31 +40,33 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 3 ms (beats 27.56%)  
-**Memory:** 97.4 MB (beats 26.58%)  
-**Submitted:** 2026-10-03T05:03:08.080Z  
+**Language:** Java  
+**Runtime:** 2 ms (beats 47.75%)  
+**Memory:** 94 MB (beats 92.78%)  
+**Submitted:** 2026-10-17T08:53:42.285Z  
 
-```cpp
+```java
 class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int n=prices.size();
-        if(n==0){
-            return 0;
-        }
-        int buy=prices[0];
+    public int maxProfit(int[] prices) {
+        int n=prices.length;
         int maxProfit=0;
+
+        if(n==0){
+            return maxProfit;
+        }
+
+        int buy=prices[0];
         for(int i=1;i<n;i++){
             int sell=prices[i];
-            maxProfit=max(maxProfit,(sell-buy));
-            if(prices[i]<buy){
-                buy=prices[i];
+            
+            maxProfit=Math.max(maxProfit,(sell-buy));
+            if(sell<buy){
+                buy=sell;
             }
         }
         return maxProfit;
     }
-};
+}
 ```
 
 ---
