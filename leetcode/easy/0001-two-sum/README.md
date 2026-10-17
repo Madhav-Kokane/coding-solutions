@@ -52,31 +52,32 @@ Output: [0,1]
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-10-03T04:53:50.326Z  
+**Language:** Java  
+**Runtime:** 2 ms (beats 99.42%)  
+**Memory:** 46.4 MB (beats 97.16%)  
+**Submitted:** 2026-10-17T08:48:24.931Z  
 
-```cpp
+```java
 class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int> hashMap;
-        int n=nums.size();
-        vector<int> result;
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> hashMap=new HashMap<>();
+        int[] result=new int[2];
+        int n=nums.length;
+
         for(int i=0;i<n;i++){
             int remain=target-nums[i];
-            if(hashMap.find(remain) != hashMap.end()){
-                result.push_back(hashMap[remain]);
-                result.push_back(i);
+
+            if(hashMap.containsKey(remain)){
+                result[0]=hashMap.get(remain);
+                result[1]=i;
                 return result;
             }else{
-                hashMap[nums[i]]=i;
+                hashMap.put(nums[i],i);
             }
         }
         return result;
     }
-};
+}
 ```
 
 ---
