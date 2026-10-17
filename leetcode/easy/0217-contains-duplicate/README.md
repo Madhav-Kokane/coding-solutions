@@ -43,25 +43,25 @@ All elements are distinct.
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 93 ms (beats 14.16%)  
-**Memory:** 111.1 MB (beats 74.68%)  
-**Submitted:** 2026-10-03T05:05:47.968Z  
+**Language:** Java  
+**Runtime:** 17 ms (beats 87.71%)  
+**Memory:** 108 MB (beats 63.67%)  
+**Submitted:** 2026-10-17T08:58:05.902Z  
 
-```cpp
+```java
 class Solution {
-public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> hashSet;
-        for(auto it : nums){
-            if(hashSet.find(it) != hashSet.end()){
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> hashSet=new HashSet<>();
+        int n=nums.length;
+        for(int it : nums){
+            if(hashSet.contains(it)){
                 return true;
             }
-            hashSet.insert({it});
+            hashSet.add(it);
         }
         return false;
     }
-};
+}
 ```
 
 ---
