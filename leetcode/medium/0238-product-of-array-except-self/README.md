@@ -42,43 +42,47 @@ Output: [0,0,9,0,0]
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 3 ms (beats 37.26%)  
-**Memory:** 43.9 MB (beats 5.82%)  
-**Submitted:** 2026-10-03T05:20:21.476Z  
+**Language:** Java  
+**Runtime:** 8 ms (beats 2.96%)  
+**Memory:** 70.7 MB (beats 69.49%)  
+**Submitted:** 2026-10-18T13:00:23.970Z  
 
-```cpp
+```java
 class Solution {
-public:
-    vector<int> productExceptSelf(vector<int>& nums) {
-        vector<int>  ltor;
-        int n=nums.size();
+    public int[] productExceptSelf(int[] nums) {
+        int n=nums.length;
+        if(n==1){
+            return new int[]{1};
+        }
+        ArrayList<Integer> lTor=new ArrayList<>();
         int prod=1;
         for(int i=0;i<n;i++){
-            prod=nums[i]*prod;
-            ltor.push_back(prod);
+            prod=prod*nums[i];
+            lTor.add(prod);
         }
+
 
         prod=1;
-        vector<int> rtol(n);
+        ArrayList<Integer> rToL=new ArrayList<>(Collections.nCopies(n,0));
         for(int i=n-1;i>=0;i--){
             prod=prod*nums[i];
-            rtol[i]=prod;
-        }
+            rToL.set(i,prod);
+        } 
 
-        vector<int> result(n,0);
+        // ArrayList<Integer> ans=new ArrayList<>(n);
+        int[] ans=new int[n];
         for(int i=0;i<n;i++){
             if(i==0){
-                result[i]=rtol[i+1];
-            }else if(i==n-1){
-                result[i]=ltor[i-1];
+                ans[i]=rToL.get(i+1);
+            }else if(i == n-1){
+                ans[i]=lTor.get(i-1);
             }else{
-                result[i]=ltor[i-1]*rtol[i+1];
+                ans[i]=lTor.get(i-1)*rToL.get(i+1);
             }
         }
-        return result;
+        return ans;
     }
-};
+}
 ```
 
 ---
