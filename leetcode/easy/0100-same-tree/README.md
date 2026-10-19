@@ -43,43 +43,47 @@ Output: false
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 12.9 MB (beats 12.61%)  
-**Submitted:** 2026-10-12T04:04:54.798Z  
+**Memory:** 42.3 MB (beats 97.85%)  
+**Submitted:** 2026-10-19T13:58:30.876Z  
 
-```cpp
+```java
 /**
  * Definition for a binary tree node.
- * struct TreeNode {
+ * public class TreeNode {
  *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
  */
 class Solution {
-public:
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        if(!p && !q){
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p==null && q==null){
             return true;
         }
 
-        if((p && !q) || (!p && q)){
+        if(p!=null && q==null){
             return false;
         }
 
-        if(p->val != q->val){
+        if(p==null && q!=null){
             return false;
         }
 
-        bool left=isSameTree(p->left,q->left);
-        bool right=isSameTree(p->right,q->right);
-        return left && right;
+        boolean left=isSameTree(p.left,q.left);
+        boolean right=isSameTree(p.right,q.right);
+        return (p.val==q.val) && left && right;
     }
-};
+
+}
 ```
 
 ---
