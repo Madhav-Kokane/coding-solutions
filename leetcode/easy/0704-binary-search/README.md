@@ -39,31 +39,29 @@ Explanation: 2 does not exist in nums so return -1
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 31.3 MB (beats 80.64%)  
-**Submitted:** 2026-09-27T08:20:59.026Z  
+**Memory:** 47.8 MB (beats 96.73%)  
+**Submitted:** 2026-10-19T13:20:59.950Z  
 
-```cpp
+```java
 class Solution {
-public:
-    int search(vector<int>& nums, int target) {
+    public int search(int[] nums, int target) {
         int start=0;
-        int end=nums.size()-1;
-        
+        int end=nums.length-1;
         while(start<=end){
             int mid=start+(end-start)/2;
             if(nums[mid] == target){
                 return mid;
-            }else if(nums[mid]<target){
-                start=mid+1;
-            }else{
+            }else if(nums[mid]>target){
                 end=mid-1;
+            }else{
+                start=mid+1;
             }
         }
         return -1;
     }
-};
+}
 ```
 
 ---
