@@ -45,25 +45,25 @@ Output: 4
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 13.5 MB (beats 79.07%)  
-**Submitted:** 2026-09-27T08:52:59.939Z  
+**Memory:** 44 MB (beats 98.78%)  
+**Submitted:** 2026-10-19T13:31:04.234Z  
 
-```cpp
+```java
 class Solution {
-public:
-    int searchInsert(vector<int>& nums, int target) {
-        int start=0;
-        if(nums[nums.size()-1] < target){
-            return nums.size();
+    public int searchInsert(int[] nums, int target) {
+
+        if(nums[nums.length-1]<target){
+            return nums.length;
         }
-        int end=nums.size()-1;
+        int start=0;
+        int end=nums.length-1;
         while(start<end){
             int mid=start+(end-start)/2;
             if(nums[mid] == target){
                 return mid;
-            }else if(nums[mid] < target){
+            }else if(nums[mid]<target){
                 start=mid+1;
             }else{
                 end=mid;
@@ -71,7 +71,7 @@ public:
         }
         return end;
     }
-};
+}
 ```
 
 ---
