@@ -38,25 +38,26 @@ Output: 4
 ## Solution
 
 **Language:** C++  
-**Runtime:** 58 ms (beats 10.51%)  
-**Memory:** 75.5 MB (beats 16.89%)  
-**Submitted:** 2026-10-08T06:31:41.976Z  
+**Runtime:** 57 ms (beats 10.59%)  
+**Memory:** 75.8 MB (beats 6.82%)  
+**Submitted:** 2026-10-24T13:39:08.934Z  
 
 ```cpp
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        int n=nums.size();
         priority_queue<int> pq;
 
-        for(auto it : nums){
+        for(auto it: nums){
             pq.push(it);
         }
 
-        while(k>1){
+        int i=1;
+        while(i<k){
             pq.pop();
-            k--;
+            i++;
         }
+
         return pq.top();
     }
 };
