@@ -42,32 +42,30 @@ Given an integer array `nums` and an integer `k`, return  *the*  `k`  *most freq
 ## Solution
 
 **Language:** C++  
-**Runtime:** 6 ms (beats 20.06%)  
-**Memory:** 17.9 MB (beats 77.73%)  
-**Submitted:** 2026-10-08T10:15:31.309Z  
+**Runtime:** 3 ms (beats 52.38%)  
+**Memory:** 17.9 MB (beats 93.92%)  
+**Submitted:** 2026-10-24T13:51:13.624Z  
 
 ```cpp
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int,int> hashMap;
+        vector<int> result;
         for(auto it : nums){
             hashMap[it]++;
         }
 
-        priority_queue<pair<int,int> , vector<pair<int,int>>, greater<pair<int,int>>> minHeap;
-
-        for(auto it:hashMap){
-            minHeap.push({it.second,it.first});
-            if(minHeap.size() > k){
-                minHeap.pop();
-            }
+        priority_queue<pair<int,int>> pq;
+        for(auto it : hashMap){
+            pq.push({it.second,it.first});
         }
 
-        vector<int> result;
-        while(!minHeap.empty()){
-            result.push_back(minHeap.top().second);
-            minHeap.pop();
+        while(k>0){
+            int temp=pq.top().second;
+            result.push_back(temp);
+            pq.pop();
+            k--;
         }
         return result;
     }
