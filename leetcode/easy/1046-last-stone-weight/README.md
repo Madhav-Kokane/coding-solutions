@@ -49,35 +49,34 @@ Output: 1
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 10 MB (beats 12.53%)  
-**Submitted:** 2026-10-08T10:07:55.682Z  
+**Memory:** 9.9 MB (beats 46.68%)  
+**Submitted:** 2026-10-24T13:46:16.800Z  
 
 ```cpp
 class Solution {
 public:
     int lastStoneWeight(vector<int>& stones) {
-        priority_queue<int> maxHeap;
-
-        for(auto it : stones){
-            maxHeap.push(it);
+        priority_queue<int> pq;
+        for(auto it:stones){
+            pq.push(it);
         }
 
-        while(maxHeap.size()>1){
-            int y=maxHeap.top();
-            maxHeap.pop();
-            int x=maxHeap.top();
-            maxHeap.pop();
+        while(pq.size()>1){
+            int y=pq.top();
+            pq.pop();
+            int x=pq.top();
+            pq.pop();
 
             if(x!=y){
                 y=y-x;
-                maxHeap.push(y);
+                pq.push(y);
             }
         }
 
-        if(maxHeap.empty()){
-            return 0;
-        }
-        return maxHeap.top();
+            if(pq.empty()){
+                return 0;
+            }
+            return pq.top();
     }
 };
 ```
