@@ -37,30 +37,29 @@ Output: [[],[0]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 9.8 MB (beats 95.86%)  
-**Submitted:** 2026-10-09T08:17:29.472Z  
+**Runtime:** 1 ms (beats 45.73%)  
+**Memory:** 10 MB (beats 59.08%)  
+**Submitted:** 2026-10-25T06:46:47.173Z  
 
 ```cpp
 class Solution {
 public:
-    void buildSoln(int i,int n,vector<int>& temp,vector<int>& nums,vector<vector<int>>& result){
-        if(i==n){
+    void recSoln(int i,vector<int>& nums,vector<int>& temp,vector<vector<int>>& result){
+
+        if(i==nums.size()){
             result.push_back(temp);
             return;
         }
 
         temp.push_back(nums[i]);
-        buildSoln(i+1,n,temp,nums,result);
+        recSoln(i+1,nums,temp,result);
         temp.pop_back();
-        buildSoln(i+1,n,temp,nums,result);
-
+        recSoln(i+1,nums,temp,result);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> result;
-        int n=nums.size();
         vector<int> temp;
-        buildSoln(0,n,temp,nums,result);
+        recSoln(0,nums,temp,result);
         return result;
     }
 };
