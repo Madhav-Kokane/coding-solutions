@@ -1,39 +1,32 @@
 class Solution {
 public:
-    void soln(int i,int n,string digits,vector<string>& result,string str,map<char,string>& mapping){
-
-        if(i == n){
-            result.push_back(str);
+    void solve(int ind,string digits,string& str,vector<string>& ans,map<char,string>& mp){
+        if(ind==digits.size()){
+            ans.push_back(str);
             return;
         }
 
-        char ch=digits[i];
-        for(auto chars : mapping[ch]){
-            str.push_back(chars);
-            soln(i+1,n,digits,result,str,mapping);
+        string letter=mp[digits[ind]];
+        for(auto ch : letter){
+            str.push_back(ch);
+            solve(ind+1,digits,str,ans,mp);
             str.pop_back();
         }
     }
     vector<string> letterCombinations(string digits) {
+        map<char,string> mp;
+        mp['2']="abc";
+        mp['3']="def";
+        mp['4']="ghi";
+        mp['5']="jkl";
+        mp['6']="mno";
+        mp['7']="pqrs";
+        mp['8']="tuv";
+        mp['9']="wxyz";
 
-        int n=digits.length();
-        vector<string> result;
-        if(n==0){
-            return result;
-        }
-        map<char,string> mapping;
-        mapping['2']="abc";
-        mapping['3']="def";
-        mapping['4']="ghi";
-        mapping['5']="jkl";
-        mapping['6']="mno";
-        mapping['7']="pqrs";
-        mapping['8']="tuv";
-        mapping['9']="wxyz";
-
-        string str="";
-        soln(0,n,digits,result,str,mapping);
-        return result;
-
+        vector<string> ans;
+        string temp="";
+        solve(0,digits,temp,ans,mp);
+        return ans;
     }
 };
