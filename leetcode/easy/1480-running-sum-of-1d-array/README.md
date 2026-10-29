@@ -43,25 +43,25 @@ Output: [3,4,6,16,17]
 
 ## Solution
 
-**Language:** Java  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 44.2 MB (beats 72.66%)  
-**Submitted:** 2026-07-25T10:34:07.035Z  
+**Language:** C++  
+**Runtime:** 1 ms (beats 11.10%)  
+**Memory:** 12.7 MB (beats 12.44%)  
+**Submitted:** 2026-10-29T12:15:10.527Z  
 
-```java
+```cpp
 class Solution {
-    public int[] runningSum(int[] nums) {
-        int size=nums.length;
-        int result[]=new int[size];
-
-        int temp=0;
-        for(int i=0;i<size;i++){
-            temp+=nums[i];
-            result[i]=temp;
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        int n=nums.size();
+        vector<int> runSum(n,0);
+        runSum[0]=nums[0];
+        for(int i=1;i<n;i++){
+            runSum[i]=runSum[i-1]+nums[i];
         }
-        return result;
+
+        return runSum;
     }
-}
+};
 ```
 
 ---
