@@ -48,23 +48,32 @@ rotate 2 steps to the right: [3,99,-1,-100]
 
 ## Solution
 
-**Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 263.4 MB (beats 42.95%)  
-**Submitted:** 2026-09-23T09:16:02.329Z  
+**Language:** Java  
+**Runtime:** 5 ms (beats 56.86%)  
+**Memory:** 268.4 MB (beats 79.64%)  
+**Submitted:** 2026-11-01T13:23:53.898Z  
 
-```cpp
+```java
 class Solution {
-public:
-    void rotate(vector<int>& nums, int k) {
-        int n=nums.size();
+    public void reverse(int[] nums,int start,int end){
+
+        while(start<end){
+            int temp=nums[start];
+            nums[start]=nums[end];
+            nums[end]=temp;
+            start++;
+            end--;
+        }
+    }
+    public void rotate(int[] nums, int k) {
+        int n=nums.length;
         k=k%n;
 
-        reverse(nums.begin(),nums.end());
-        reverse(nums.begin(),nums.begin()+k);
-        reverse(nums.begin()+k,nums.end());
+        reverse(nums,0,n-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
     }
-};
+}
 ```
 
 ---
