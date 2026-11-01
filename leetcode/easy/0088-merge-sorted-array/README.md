@@ -61,37 +61,36 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 **Language:** Java  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 43.9 MB (beats 47.62%)  
-**Submitted:** 2026-08-22T06:14:21.229Z  
+**Memory:** 43.2 MB (beats 91.14%)  
+**Submitted:** 2026-11-01T12:55:55.674Z  
 
 ```java
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int k=m+n-1;
         int i=m-1;
         int j=n-1;
-
+        int key=m+n-1;
         while(i>=0 && j>=0){
-            if(nums1[i]>=nums2[j]){
-                nums1[k]=nums1[i];
-                i--;
-                k--;
-            }else{
-                nums1[k]=nums2[j];
-                k--;
+            if(nums2[j]>=nums1[i]){
+                nums1[key]=nums2[j];
+                key--;
                 j--;
+            }else{
+                nums1[key]=nums1[i];
+                i--;
+                key--;
             }
         }
 
-        while(i>=0 && k>=0){
-            nums1[k]=nums1[i];
-            k--;
+        while(i>=0){
+            nums1[key]=nums1[i];
+            key--;
             i--;
         }
 
-        while(j>=0 && k>=0){
-            nums1[k]=nums2[j];
-            k--;
+        while(j>=0){
+            nums1[key]=nums2[j];
+            key--;
             j--;
         }
     }
