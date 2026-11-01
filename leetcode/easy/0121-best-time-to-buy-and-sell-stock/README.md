@@ -41,30 +41,26 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2 ms (beats 47.75%)  
-**Memory:** 94 MB (beats 92.78%)  
-**Submitted:** 2026-10-17T08:53:42.285Z  
+**Runtime:** 1 ms (beats 99.92%)  
+**Memory:** 93.9 MB (beats 91.15%)  
+**Submitted:** 2026-11-01T12:43:06.547Z  
 
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
+        int maxValue=Integer.MIN_VALUE;
         int n=prices.length;
-        int maxProfit=0;
-
-        if(n==0){
-            return maxProfit;
-        }
 
         int buy=prices[0];
-        for(int i=1;i<n;i++){
-            int sell=prices[i];
-            
-            maxProfit=Math.max(maxProfit,(sell-buy));
-            if(sell<buy){
-                buy=sell;
+        for(int i=0;i<n;i++){
+            int profit=prices[i]-buy;
+            maxValue=Math.max(maxValue,profit);
+
+            if(prices[i]<buy){
+                buy=prices[i];
             }
         }
-        return maxProfit;
+        return maxValue;
     }
 }
 ```
